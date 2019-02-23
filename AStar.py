@@ -17,12 +17,12 @@ class State(object):
         self.action = ""  # Que accion creo este estado
         if parent:
             self.path = parent.path[:]  # Copia el path del padre
-            self.path.append(state)  # Y se agrega a si mismo
+            self.path.append(self)  # Y se agrega a si mismo
             self.start = parent.start
             self.goal = parent.goal
             self.action = action
         else:
-            self.path = [state]
+            self.path = [self]
             self.start = start  # Deberia ser el sudoku/puzzle inicial
             self.goal = goal  # Se busca que queden 0 casillas vacias
             self.action = "Inicio."
