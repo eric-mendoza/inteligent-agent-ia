@@ -90,15 +90,16 @@ class StateString(State):
 
 
 class AStarSolver:
-    def __init__(self, start, goal):
+    def __init__(self, problem_state, start, goal):
         self.path = []  # Contendra el reccorrido final de estados recorridos
         self.visitedQueue = []  # Contiene los estados explorados
         self.frontier = PriorityQueue()  # Contiene los estados de frontera en orden de prioridad segun heuristica
         self.start = start  # Contiene el estado inicial
         self.goal = goal  # Contiene el estado al que se busca llegar
+        self.ProblemState = problem_state
 
     def solve(self):
-        start_state = StateString(self.start, 0, 0, self.start, self.goal)
+        start_state = self.ProblemState(self.start, 0, 0, self.start, self.goal)
         count = 0
 
         # Iniciar la priority queue en el estado inicial. Se le agrega la tupla (heuristica, contador, estado)
@@ -129,7 +130,7 @@ if __name__ == "__main__":
     goal1 = "computadora"
     print("Starting...")
 
-    a = AStarSolver(start1, goal1)
+    a = AStarSolver(StateString, start1, goal1)
     a.solve()
     for i in range(len(a.path)):
         print("%d) " % i + a.path[i])

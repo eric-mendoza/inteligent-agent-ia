@@ -3,14 +3,7 @@
 #  Eric Mendoza: 15002
 #  Proyecto 1: Agente inteligente
 #  Sudoku.py: El presente programa implementa el algoritmo A* para solucionar Sudokus de 4x4
-
-
-def main():
-    print("Ingrese la cadena de Sudoku que desea resolver:")
-    raw_sudoku = ".4.13.4.1..4.21."  # input()
-    sudoku = format_input(raw_sudoku)
-    print(print_sudoku(sudoku))
-    print("Se ejecutaron los siguientes pasos:")
+from AStar import *
 
 
 def format_input(raw_sudoku):
@@ -41,4 +34,14 @@ def print_sudoku(sudoku):
     return result
 
 
-main()
+if __name__ == "__main__":
+    print("Ingrese la cadena de Sudoku que desea resolver:")
+    raw_sudoku = ".4.13.4.1..4.21."  # input()
+    sudoku = format_input(raw_sudoku)
+    print(print_sudoku(sudoku))
+    print("Se ejecutaron los siguientes pasos:")
+
+    solved_sudoku = AStarSolver(raw_sudoku, 0)
+    solved_sudoku.solve()
+    for i in range(len(solved_sudoku.path)):
+        print("%d) " % i + print_sudoku(solved_sudoku.path[i]))
