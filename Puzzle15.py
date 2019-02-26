@@ -268,7 +268,7 @@ class PuzzleState(State):
 
 if __name__ == "__main__":
     print("Ingrese la cadena de puzzle que desea resolver:")
-    raw_puzzle = "483F27A6D5E.91BC"  # input()
+    raw_puzzle = "ABCD9234E81F765."  # input()
     raw_puzzle = raw_puzzle.replace(".", "0")
     puzzle = format_input(raw_puzzle)
     print(print_puzzle(puzzle))
@@ -283,7 +283,7 @@ if __name__ == "__main__":
         state = solved_puzzle.path[i]
         action = state.action
         puzzle_state = state.state
-        print("%d) %s\n" % (i, action) )
+        print("%d) %s\n" % (i, action) + print_puzzle(puzzle_state))
 
     print("He tardado %s segundos maestro." % total)
     exit(0)
