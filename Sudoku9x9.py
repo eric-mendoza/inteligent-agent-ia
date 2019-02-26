@@ -4,7 +4,6 @@
 #  Proyecto 1: Agente inteligente
 #  Sudoku.py: El presente programa implementa el algoritmo A* para solucionar Sudokus de 4x4
 import time
-
 from AStar import *
 from copy import deepcopy
 
@@ -178,7 +177,7 @@ class SudokuState(State):
 
 if __name__ == "__main__":
     print("Ingrese la cadena de Sudoku que desea resolver:")
-    raw_sudoku1 = ".....1.7...57..83...8...9......98......6.45...6.5.....53..6..4.8...2.359.47.5.26."  # input()
+    raw_sudoku1 = "5.......3.7.4...514..16.7..3...1..8...........5..7...2..7.39..892...8.3.8.......4"  # input()
     sudoku = format_input(raw_sudoku1)
     print(print_sudoku(sudoku))
     print("Se ejecutaron los siguientes pasos:")

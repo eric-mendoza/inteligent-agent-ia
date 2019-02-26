@@ -98,8 +98,17 @@ class AStarSolver:
         self.goal = goal  # Contiene el estado al que se busca llegar
         self.ProblemState = problem_state
 
+    def check_if_visited(self, new_state):
+        pass
+
     def solve(self):
         start_state = self.ProblemState(self.start, 0, 0, self.start, self.goal)
+
+        # Verificar si el problema ya viene resuelto
+        if start_state.goal_test():
+            print("El problema viene resuelto.")
+            return start_state.path
+
         count = 0
 
         # Iniciar la priority queue en el estado inicial. Se le agrega la tupla (heuristica, contador, estado)

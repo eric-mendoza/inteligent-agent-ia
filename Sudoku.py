@@ -146,7 +146,7 @@ class SudokuState(State):
 
 if __name__ == "__main__":
     print("Ingrese la cadena de Sudoku que desea resolver:")
-    raw_sudoku1 = "................"  # input()
+    raw_sudoku1 = "....2..4.13....."  # input()
     sudoku = format_input(raw_sudoku1)
     print("Se ejecutaron los siguientes pasos:")
 
